@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './features/dashboard/dashboard.component';
 import { WorkoutRoutineComponent } from './features/workout-routine/workout-routine.component';
-import {SelectModule} from 'primeng/select';
+import { SelectModule } from 'primeng/select';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { ApplicationConfig } from '@angular/core';
@@ -17,14 +17,13 @@ import Aura from '@primeng/themes/aura';
   declarations: [
     AppComponent,
     DashboardComponent,
-    WorkoutRoutineComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     SelectModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [
     provideAnimationsAsync(),

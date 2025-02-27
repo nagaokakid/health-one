@@ -7,3 +7,10 @@ optionLabel="name"
 filterBy="name"
 [showClear]="true"
 ></p-select>
+
+<div *ngIf="selectedMuscleGroup">
+    <app-panel-card
+    [cardItem]="getMuscleGroupCardItems()">
+
+    </app-panel-card>
+</div>
