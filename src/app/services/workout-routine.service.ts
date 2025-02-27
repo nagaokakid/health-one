@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { CardItem } from '../core/panel-card/panel-card.component';
 
 
 
@@ -18,9 +19,9 @@ export class WorkoutRoutineService {
     ]
   }
 
-  public getWorkoutsByMuscleGroupId(id: number)
+  public getWorkoutsByMuscleGroupId(id: number) : CardItem[]
   {
-    return !this.workouts.find(w => w.id === id);
+    return this.workouts.filter(w => w.id === id);
   }
 
   workouts = [
