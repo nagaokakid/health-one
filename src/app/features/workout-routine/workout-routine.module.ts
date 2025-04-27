@@ -1,9 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PanelCardModule } from '../../core/panel-card/panel-card.module';
+import { PanelCardModule } from '../shared/panel-card/panel-card.module';
 import { WorkoutRoutineComponent } from './workout-routine.component';
 import { SelectModule } from 'primeng/select';
 import { FormsModule } from '@angular/forms';
+import { DataViewModule } from 'primeng/dataview';
+import {SelectButtonModule} from 'primeng/selectbutton';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [WorkoutRoutineComponent],
@@ -11,7 +14,10 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     PanelCardModule,
     SelectModule,
-    FormsModule
+    FormsModule,
+    DataViewModule,
+    SelectButtonModule,
+    MatCheckboxModule
   ]
 })
 export class WorkoutRoutineModule { }

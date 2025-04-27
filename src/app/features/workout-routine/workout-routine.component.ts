@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, computed, signal } from '@angular/core';
 import { WorkoutRoutineService } from '../../services/workout-routine.service';
-import { CardItem } from '../../core/panel-card/panel-card.component';
+import { CardItem } from '../shared/panel-card/panel-card.component';
 import { Observable } from 'rxjs';
 
 interface MuscleGroup 
@@ -10,6 +10,13 @@ interface MuscleGroup
   bodySection: string
 }
 
+interface Category {
+  parentId?: number,
+  name: string,
+  selected: boolean,
+  subCategories?: Category[]
+}
+
 @Component({
   selector: 'app-workout-routine',
   standalone: false,
@@ -17,6 +24,37 @@ interface MuscleGroup
   styleUrl: './workout-routine.component.scss'
 })
 export class WorkoutRoutineComponent {
+  readonly bodyParts = signal<Category[]>([
+    {
+    parentId: 1,
+    name: 'Upper Body',
+    selected: false,
+    subCategories: [
+      {name: 'Chest', selected: false},
+      {name: 'Shoulders', selected: false},
+      {name: 'Biceps', selected: false},
+      {name: 'Triceps', selected: false},
+      {name: 'Forearms', selected: false},
+      {name: 'Delts', selected: false},
+      {name: 'Lats', selected: false}
+      ]
+    },
+    {
+      parentId: 2,
+      name: 'Lower Body',
+      selected: false,
+      subCategories: [
+        {name: 'Abs', selected: false},
+        {name: 'Hamstrings', selected: false},
+        {name: 'Glutes', selected: false},
+        {name: 'Quads', selected: false},
+        {name: 'Calves', selected: false},
+        {name: 'Knees', selected: false},
+        {name: 'Back', selected: false}
+      ]
+    }
+
+])
   muscleGroupOptions! : MuscleGroup[];
   selectedMuscleGroup! : MuscleGroup;
   workouts: Observable<MuscleGroup>;
@@ -26,8 +64,30 @@ export class WorkoutRoutineComponent {
     this.muscleGroupOptions = workoutRoutineSvc.getMuscleGroups();
   }
 
-  getMuscleGroupCardItems()
+  getMuscleGroupCardItems(id): CardItem[]
   {
-    return this.workoutRoutineSvc.getWorkoutsByMuscleGroupId(this.selectedMuscleGroup.id);
+    return this.workoutRoutineSvc.getWorkoutsByMuscleGroupId(id);
+  }
+
+  partiallySelected(bodyPart: Category): boolean {
+    if (!bodyPart.subCategories) {
+      return false;
+    }
+
+    return bodyPart.subCategories.some((elem) => elem.selected) && !bodyPart.subCategories.every((elem) => elem.selected);
+  }
+
+  updateSelection(selected: boolean, index: number, searchInParentId?: number) {
+    if (searchInParentId) {
+      const parentElem = this.bodyParts().find((parentElem) => parentElem.parentId === searchInParentId);
+      const childElem = parentElem.subCategories[index];
+      childElem.selected = selected;
+      parentElem.selected = parentElem.subCategories.every((child) => child.selected);
+      return;
+    }
+
+    const parentElem = this.bodyParts()[index];
+    parentElem.selected = selected;
+    parentElem.subCategories.forEach((childElem) => childElem.selected = selected);
   }
 }

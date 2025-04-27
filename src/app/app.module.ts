@@ -1,22 +1,16 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { DashboardComponent } from './features/dashboard/dashboard.component';
-import { WorkoutRoutineComponent } from './features/workout-routine/workout-routine.component';
 import { SelectModule } from 'primeng/select';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
-import { ApplicationConfig } from '@angular/core';
-import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import { providePrimeNG } from 'primeng/config';
-import Aura from '@primeng/themes/aura';
+import { WorkoutRoutineModule } from './features/workout-routine/workout-routine.module';
+import { PanelCardModule } from './features/shared/panel-card/panel-card.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DashboardComponent,
   ],
   imports: [
     BrowserModule,
@@ -24,14 +18,16 @@ import Aura from '@primeng/themes/aura';
     SelectModule,
     ReactiveFormsModule,
     FormsModule,
+    WorkoutRoutineModule,
+    PanelCardModule
   ],
   providers: [
-    provideAnimationsAsync(),
-    providePrimeNG({
-      theme: {
-        preset: Aura
-      }
-    })
+    // provideAnimationsAsync(),
+    // providePrimeNG({
+    //   theme: {
+    //     preset: Aura
+    //   }
+    // })
   ],
   bootstrap: [AppComponent]
 })

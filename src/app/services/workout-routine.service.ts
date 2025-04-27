@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { CardItem } from '../core/panel-card/panel-card.component';
+import { CardItem } from '../features/shared/panel-card/panel-card.component';
 
 
 
@@ -24,7 +24,72 @@ export class WorkoutRoutineService {
     return this.workouts.filter(w => w.id === id);
   }
 
-  workouts = [
+  workouts: CardItem[] = [
+    {
+      id: 1, 
+      title: "tricep pull-down", 
+      subtitle: "subtitle",
+      content: "pull down using a cable machine",
+      buttons: [
+        {
+          label: 'Add',
+          severity: 'success',
+          action: () => console.log('clicked!')
+        }
+      ]
+    },
+    {
+      id: 1, 
+      title: "tricep pull-down", 
+      subtitle: "subtitle",
+      content: "pull down using a cable machine",
+      buttons: [
+        {
+          label: 'Add',
+          severity: 'success',
+          action: () => console.log('clicked!')
+        }
+      ]
+    },
+    {
+      id: 1, 
+      title: "tricep pull-down", 
+      subtitle: "subtitle",
+      content: "pull down using a cable machine",
+      buttons: [
+        {
+          label: 'Add',
+          severity: 'success',
+          action: () => console.log('clicked!')
+        }
+      ]
+    },
+    {
+      id: 1, 
+      title: "tricep pull-down", 
+      subtitle: "subtitle",
+      content: "pull down using a cable machine",
+      buttons: [
+        {
+          label: 'Add',
+          severity: 'success',
+          action: () => console.log('clicked!')
+        }
+      ]
+    },
+    {
+      id: 1, 
+      title: "tricep pull-down", 
+      subtitle: "subtitle",
+      content: "pull down using a cable machine",
+      buttons: [
+        {
+          label: 'Add',
+          severity: 'success',
+          action: () => console.log('clicked!')
+        }
+      ]
+    },
     {
       id: 1, 
       title: "tricep pull-down", 
