@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { CardItem } from '../features/shared/panel-card/panel-card.component';
 
 
 
@@ -17,4 +18,90 @@ export class WorkoutRoutineService {
       {id: 3, name: 'Chest', bodySection: 'upper'}
     ]
   }
+
+  public getWorkoutsByMuscleGroupId(id: number) : CardItem[]
+  {
+    return this.workouts.filter(w => w.id === id);
+  }
+
+  workouts: CardItem[] = [
+    {
+      id: 1, 
+      title: "tricep pull-down", 
+      subtitle: "subtitle",
+      content: "pull down using a cable machine",
+      buttons: [
+        {
+          label: 'Add',
+          severity: 'success',
+          action: () => console.log('clicked!')
+        }
+      ]
+    },
+    {
+      id: 1, 
+      title: "tricep pull-down", 
+      subtitle: "subtitle",
+      content: "pull down using a cable machine",
+      buttons: [
+        {
+          label: 'Add',
+          severity: 'success',
+          action: () => console.log('clicked!')
+        }
+      ]
+    },
+    {
+      id: 1, 
+      title: "tricep pull-down", 
+      subtitle: "subtitle",
+      content: "pull down using a cable machine",
+      buttons: [
+        {
+          label: 'Add',
+          severity: 'success',
+          action: () => console.log('clicked!')
+        }
+      ]
+    },
+    {
+      id: 1, 
+      title: "tricep pull-down", 
+      subtitle: "subtitle",
+      content: "pull down using a cable machine",
+      buttons: [
+        {
+          label: 'Add',
+          severity: 'success',
+          action: () => console.log('clicked!')
+        }
+      ]
+    },
+    {
+      id: 1, 
+      title: "tricep pull-down", 
+      subtitle: "subtitle",
+      content: "pull down using a cable machine",
+      buttons: [
+        {
+          label: 'Add',
+          severity: 'success',
+          action: () => console.log('clicked!')
+        }
+      ]
+    },
+    {
+      id: 1, 
+      title: "tricep pull-down", 
+      subtitle: "subtitle",
+      content: "pull down using a cable machine",
+      buttons: [
+        {
+          label: 'Add',
+          severity: 'success',
+          action: () => console.log('clicked!')
+        }
+      ]
+    }
+  ]
 }
