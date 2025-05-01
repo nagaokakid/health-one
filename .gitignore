@@ -30,8 +30,9 @@ yarn-error.log
 /environment/*
 
 # Visual Studio
-/.vs
-/obj
+/HealthOneWebServer/.vs
+/HealthOneWebServer/obj
+/HealthOneWebServer/bin
 
 # Miscellaneous
 /.angular/cache
