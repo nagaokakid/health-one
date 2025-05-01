@@ -7,6 +7,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { WorkoutRoutineModule } from './features/workout-routine/workout-routine.module';
 import { PanelCardModule } from './features/shared/panel-card/panel-card.module';
+import { ApiHttpInterceptor } from './core/api-http-interceptor';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -22,12 +24,11 @@ import { PanelCardModule } from './features/shared/panel-card/panel-card.module'
     PanelCardModule
   ],
   providers: [
-    // provideAnimationsAsync(),
-    // providePrimeNG({
-    //   theme: {
-    //     preset: Aura
-    //   }
-    // })
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ApiHttpInterceptor,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })

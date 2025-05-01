@@ -71,7 +71,8 @@
               "RelativeToolTip": "Program.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAQwBEAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-24T03:27:23.945Z"
+              "WhenOpened": "2025-04-24T03:27:23.945Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -83,7 +84,8 @@
               "RelativeToolTip": "Api_Bal\\ExercisesBal.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-24T03:10:21.584Z"
+              "WhenOpened": "2025-04-24T03:10:21.584Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -93,9 +95,10 @@
               "RelativeDocumentMoniker": "Controllers\\Api\\ExercisesController.cs",
               "ToolTip": "C:\\_dev\\health-one\\MuscleOneWebServer\\Controllers\\Api\\ExercisesController.cs",
               "RelativeToolTip": "Controllers\\Api\\ExercisesController.cs",
-              "ViewState": "AQIAABAAAAAAAAAAAAAAAB8AAAAFAAAA",
+              "ViewState": "AQIAAA0AAAAAAAAAAIBQwB8AAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-24T03:09:47.053Z"
+              "WhenOpened": "2025-04-24T03:09:47.053Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -107,7 +110,8 @@
               "RelativeToolTip": "Api_Dal\\ExercisesDal.cs",
               "ViewState": "AQIAAAMAAAAAAAAAAAAuwBcAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-21T19:37:53.209Z"
+              "WhenOpened": "2025-04-21T19:37:53.209Z",
+              "EditorCaption": ""
             }
           ]
         }

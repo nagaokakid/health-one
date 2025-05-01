@@ -433,9 +433,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\_dev\\health-one\\MuscleOneWebServer\\MuscleOneWebServer.csproj",
-      "projectName": "MuscleOneWebServer",
-      "projectPath": "C:\\_dev\\health-one\\MuscleOneWebServer\\MuscleOneWebServer.csproj",
+      "projectUniqueName": "C:\\_dev\\health-one\\MuscleOneWebServer\\HealthOneWebServer.csproj",
+      "projectName": "HealthOneWebServer",
+      "projectPath": "C:\\_dev\\health-one\\MuscleOneWebServer\\HealthOneWebServer.csproj",
       "packagesPath": "C:\\Users\\Akira Cooper\\.nuget\\packages\\",
       "outputPath": "C:\\_dev\\health-one\\MuscleOneWebServer\\obj\\",
       "projectStyle": "PackageReference",
