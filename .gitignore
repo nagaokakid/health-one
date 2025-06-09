@@ -27,10 +27,12 @@ yarn-error.log
 !.vscode/launch.json
 !.vscode/extensions.json
 .history/*
+/environment/*
 
 # Visual Studio
-/.vs
-/obj
+/HealthOneWebServer/.vs
+/HealthOneWebServer/obj
+/HealthOneWebServer/bin
 
 # Miscellaneous
 /.angular/cache
