@@ -8,7 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { WorkoutRoutineModule } from './features/workout-routine/workout-routine.module';
 import { PanelCardModule } from './features/shared/panel-card/panel-card.module';
 import { ApiHttpInterceptor } from './core/api-http-interceptor';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, provideHttpClient } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -28,7 +28,8 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
       provide: HTTP_INTERCEPTORS,
       useClass: ApiHttpInterceptor,
       multi: true
-    }
+    },
+    provideHttpClient()
   ],
   bootstrap: [AppComponent]
 })

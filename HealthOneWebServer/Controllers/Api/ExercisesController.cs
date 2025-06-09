@@ -1,20 +1,20 @@
 using Microsoft.AspNetCore.Mvc;
-using HealthOneWebServer.Api_Bal;
-using HealthOneWebServer.Model.Api;
+using HealthOneWebServer.Model.RapidAPI.Exercises;
+using HealthOneWebServer.Services.Exercises;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace HealthOneWebServer.Controllers.Api
+namespace HealthOneWebServer.Controllers.API
 {
   [Route("api/v1")]
   [ApiController]
   public class ExercisesController : ControllerBase
   {
-    private readonly ExercisesBal _exercisesBal;
+    private readonly ExercisesService _exercisesService;
 
-    public ExercisesController(ExercisesBal exercisesBal)
+    public ExercisesController(ExercisesService service)
     {
-      _exercisesBal = exercisesBal;
+      _exercisesService = service;
     }
     // GET: api/<Exercises>
     [HttpGet]
@@ -25,10 +25,10 @@ namespace HealthOneWebServer.Controllers.Api
 
     // POST api/<Exercises>/
     [HttpPost]
-    [Route("exercises")]
-    public async Task<IActionResult> GetExerciseSet([FromBody] ExerciseRequestDto request)
+    [Route("exercises/{muscle}")]
+    public async Task<IActionResult> GetExerciseByMuscle(ExerciseRequestDto request, string muscle)
     {
-      return await _exercisesBal.GetExerciseSet(request);
+      return await _exercisesService.GetExercisesByTargetMuscle(request, muscle);
     }
 
     // PUT api/<Exercises>/5

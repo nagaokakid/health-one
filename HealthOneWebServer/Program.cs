@@ -1,16 +1,22 @@
-using HealthOneWebServer.Api_Dal;
-using HealthOneWebServer.Api_Bal;
+
+using HealthOneWebServer.API.Remote;
+using HealthOneWebServer.Services.Exercises;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Configuration.AddUserSecrets<Program>();
+
+var rapidApiKey = builder.Configuration["RapidApi:Key"];
+var rapidApiHost = builder.Configuration["RapidApi:Host"];
+
 // Add services to the container.
-builder.Services.AddHttpClient<ApiNinjasClient>(client =>
+builder.Services.AddHttpClient<RapidApiClient>(client =>
 {
-  client.BaseAddress = new Uri("https://api.api-ninjas.com/v1/");
-  client.DefaultRequestHeaders.Add("X-API-Key", "enter-api-key-here");
+  client.BaseAddress = new Uri("https://exercisedb.p.rapidapi.com/");
+  client.DefaultRequestHeaders.Add("x-rapidapi-key", rapidApiKey);
+  client.DefaultRequestHeaders.Add("x-rapidapi-host", rapidApiHost);
 });
-builder.Services.AddScoped<ExercisesDal>();
-builder.Services.AddScoped<ExercisesBal>();
+builder.Services.AddScoped<ExercisesService>();
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

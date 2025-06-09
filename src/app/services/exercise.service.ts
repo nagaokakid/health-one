@@ -1,18 +1,20 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Muscle } from '../models/muscle.model';
+import { Observable } from 'rxjs';
+import { ExerciseDto } from '../models/dto/exercise-dto.model';
+import { ExerciseSetRequest } from '../models/requests/exercise-set-request.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ExerciseService {
 
-  private apiBaseUrl = 'api/v1/';
+  private url = 'api/v1/exercises';
 
   constructor(private httpClient: HttpClient) { }
 
-  getAllExercisesByMuscle(muscle: Muscle) {
-    
+  getExerciseSet(request: ExerciseSetRequest ): Observable<any> {
+    return this.httpClient.get(this.url);
   }
 
 }

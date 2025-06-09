@@ -2,6 +2,8 @@ import { Component, computed, signal } from '@angular/core';
 import { WorkoutRoutineService } from '../../services/workout-routine.service';
 import { CardItem } from '../shared/panel-card/panel-card.component';
 import { Observable } from 'rxjs';
+import { ExerciseService } from '../../services/exercise.service';
+import { ExerciseSetRequest } from '../../models/requests/exercise-set-request.model';
 
 interface MuscleGroup 
 {
@@ -59,7 +61,10 @@ export class WorkoutRoutineComponent {
   selectedMuscleGroup! : MuscleGroup;
   workouts: Observable<MuscleGroup>;
 
-  constructor(private workoutRoutineSvc: WorkoutRoutineService) 
+  constructor(
+    private workoutRoutineSvc: WorkoutRoutineService,
+    private exerciseSvc: ExerciseService
+  ) 
   {
     this.muscleGroupOptions = workoutRoutineSvc.getMuscleGroups();
   }
@@ -78,6 +83,10 @@ export class WorkoutRoutineComponent {
   }
 
   updateSelection(selected: boolean, index: number, searchInParentId?: number) {
+    const request: ExerciseSetRequest = {
+    }
+    this.exerciseSvc.getExerciseSet(request).subscribe((data) => console.log(data))
+
     if (searchInParentId) {
       const parentElem = this.bodyParts().find((parentElem) => parentElem.parentId === searchInParentId);
       const childElem = parentElem.subCategories[index];
